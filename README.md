@@ -1,5 +1,3 @@
-Aquí tienes un `README.md` listo para GitHub, directo y funcional:
-
 ---
 
 ```md
@@ -24,14 +22,12 @@ Convierte un archivo `.txt` desordenado en un archivo estructurado con formato:
 
 ## 📁 Estructura del proyecto
 
-```
 
 project/
 ├── main.py
 ├── utils.py
 └── template.txt
 
-````
 
 ---
 
@@ -46,13 +42,13 @@ python main.py archivo.txt
 Ejemplo:
 
 ```bash
-python main.py /home/user/temario/hilos.txt
+python main.py /home/user/temario/ejemplo.txt
 ```
 
 Salida:
 
 ```
-hilos_prompt.txt
+ejemplo_prompt.txt
 ```
 
 ---
@@ -72,7 +68,7 @@ Archivo input:
 Debes introducir SOLO la ruta del archivo:
 
 ```
-/home/user/temario/hilos.txt
+/home/user/temario/ejemplo.txt
 ```
 
 ---
@@ -88,7 +84,7 @@ nombre_original_prompt.txt
 Ejemplo:
 
 ```
-hilos.txt → hilos_prompt.txt
+ejemplo.txt → ejemplo_prompt.txt
 ```
 
 ---
@@ -183,16 +179,4 @@ Este proyecto transforma documentos desestructurados en conocimiento organizado,
 
 ---
 
-## 👤 Autor
 
-Proyecto personal de procesamiento de apuntes y automatización de conocimiento.
-
-```
-
----
-
-Si quieres, en el siguiente paso puedo ayudarte a:
-- :contentReference[oaicite:0]{index=0}
-- o :contentReference[oaicite:1]{index=1}
-- o :contentReference[oaicite:2]{index=2}
-```
