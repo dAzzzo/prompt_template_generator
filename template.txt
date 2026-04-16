@@ -1,0 +1,19 @@
+Reestructura el siguiente contenido en formato claro para estudio y uso en IA:
+
+- Usa secciones (##, ###)
+- Separa conceptos, ejemplos y problemas
+- No inventes información
+- Mantén todo lo importante
+
+FORMATO:
+
+[TEMA]
+
+## 1. Definición
+## 2. Conceptos clave
+## 3. Desarrollo
+## 4. Ejemplos
+## 5. Problemas
+## 6. Resumen
+
+CONTENIDO:
