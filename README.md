@@ -1,179 +1,156 @@
-# Prompt Template Generator (TXT Cleaner & Structurer)
+# Prompt Template Generator
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
-![Sin dependencias](https://img.shields.io/badge/dependencias-ninguna-green)
-![Determinista](https://img.shields.io/badge/IA-no%20usa-lightgrey)
+![Dependency](https://img.shields.io/badge/dependency-pypdf-green)
+![Deterministic](https://img.shields.io/badge/AI-not%20used-lightgrey)
 
-Herramienta en Python para convertir textos "sucios" (extraídos de PDFs o PowerPoints) en apuntes estructurados y listos para estudio o uso en sistemas de recuperación de información (RAG).
+A lightweight Python tool that converts unstructured TXT or PDF content into clean, structured text suitable for study, indexing, or downstream processing.
 
-No utiliza IA. Todo el procesamiento es determinista (reglas + parsing).
-
----
-
-## ¿Qué hace?
-
-Convierte un archivo `.txt` desordenado en un archivo estructurado con formato:
-
-- Secciones organizadas (`##`)
-- Bloques de contenido agrupados
-- Limpieza de ruido (saltos, páginas, texto innecesario)
-- Estructura homogénea para estudio o reutilización
+This project is fully deterministic. It does not rely on AI or external services.
 
 ---
 
-## Estructura del proyecto
+## Features
+
+* Cleans noisy text (OCR artifacts, page numbers, formatting issues)
+* Detects structural elements (titles, sections)
+* Groups content into logical blocks
+* Outputs consistent, structured text format
+* Supports both `.txt` and `.pdf` inputs
+
+---
+
+## Project Structure
 
 ```
 project/
 ├── main.py
 ├── utils.py
-└── template.txt
 ```
 
 ---
 
-## Uso
-
-### Opción 1: ejecución por argumento (recomendado)
+## Installation
 
 ```bash
-python main.py archivo.txt
+pip install pypdf
 ```
 
-Ejemplo:
-
-```bash
-python main.py /home/user/temario/ejemplo.txt
-```
-
-Salida:
-
-```
-ejemplo_prompt.txt
-```
+Recommended: use a virtual environment.
 
 ---
 
-### Opción 2: modo interactivo
+## Usage
+
+### CLI mode
+
+```bash
+python main.py file.txt
+python main.py file.pdf
+```
+
+### Interactive mode
 
 ```bash
 python main.py
 ```
 
-El programa pedirá:
+You will be prompted to configure:
+
+* Output language (EN default / ES optional)
+* Output file name
+* Output directory
+* Input type
+
+---
+
+## Output
+
+The tool generates:
 
 ```
-Archivo input:
+<original_name>_prompt.txt
 ```
 
-Debes introducir SOLO la ruta del archivo:
+Example:
 
 ```
-/home/user/temario/ejemplo.txt
+notes.pdf → notes_prompt.txt
 ```
 
 ---
 
-## Resultado
+## Processing Pipeline
 
-El programa genera un nuevo archivo:
-
-```
-nombre_original_prompt.txt
-```
-
-Ejemplo:
+### TXT
 
 ```
-ejemplo.txt → ejemplo_prompt.txt
+TXT → Cleaning → Block Detection → Structuring → Output
 ```
 
----
-
-## Cómo funciona
-
-Pipeline interno:
+### PDF
 
 ```
-TXT input
-   ↓
-Limpieza de ruido
-   ↓
-Detección de bloques (títulos / contenido)
-   ↓
-Agrupación estructurada
-   ↓
-Formateo en plantilla
-   ↓
-TXT final estructurado
+PDF → Text Extraction → Cleaning → Block Detection → Structuring → Output
 ```
 
 ---
 
-## Qué detecta automáticamente
+## Detection Heuristics
 
-- Títulos (UD1, mayúsculas, encabezados)
-- Listas y contenido asociado
-- Bloques de información relacionados
-- Texto irrelevante (páginas, ruido básico OCR)
-
----
-
-## Requisitos
-
-- Python 3.8+
-
-No requiere librerías externas.
+* Uppercase lines → treated as titles
+* Lines starting with `UD` → treated as units
+* Short lines ending with `:` → treated as headings
+* Numeric-only lines and page markers → removed
 
 ---
 
-## Limitaciones
+## Limitations
 
-- No interpreta semántica (no usa IA)
-- La calidad depende del texto de entrada
-- Diseñado para textos tipo PDF/PPT convertidos a TXT
-
----
-
-## Uso recomendado
-
-Ideal para:
-
-- Apuntes de universidad
-- Temarios de oposiciones
-- Material técnico (programación, sistemas, etc.)
-- Preparación de bases para sistemas RAG o IA posterior
+* No semantic understanding (rule-based only)
+* PDF extraction quality depends on source
+* Not suitable for scanned PDFs (no OCR)
 
 ---
 
-## Ejemplo de mejora del input
+## Use Cases
 
-❌ Texto sucio:
+* Academic notes structuring
+* Study material normalization
+* Preprocessing for search or RAG pipelines
+* Cleaning exported slides or documents
+
+---
+
+## Example
+
+**Input:**
 
 ```
 Page 1
-PROGRAMACION MULTIHILO
-hilo es una secuencia...
+MULTITHREADED PROGRAMMING
+thread is a sequence...
 ```
 
-✔ Salida:
+**Output:**
 
 ```
-## UD1 PROGRAMACION MULTIHILO
-hilo es una secuencia...
+## MULTITHREADED PROGRAMMING
+thread is a sequence...
 ```
 
 ---
 
-## Idea del proyecto
+## Future Work
 
-Este proyecto transforma documentos desestructurados en conocimiento organizado, listo para estudio o procesamiento automático.
+* Improved structure detection
+* List and bullet recognition
+* Optional translation layer (API-based)
+* JSON / structured export
+* RAG-ready output formats
 
 ---
 
-## Futuras mejoras (opcional)
+## License
 
-- Detección avanzada de definiciones y ejemplos
-- Exportación a PDF
-- Modo examen (generación de preguntas)
-- Integración con sistemas RAG
+MIT

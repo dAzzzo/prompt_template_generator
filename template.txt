@@ -1,21 +1,21 @@
-Reestructura el siguiente contenido en formato claro para estudio y uso en IA.
+Restructure the following content into a clear format for study and use in AI.
 
-Instrucciones:
-- Usa secciones (##, ###)
-- Separa conceptos, ejemplos y ejercicios
-- No inventes información ni añadas contenido externo
-- Conserva todo lo importante del original
-- Mantén el nivel técnico del texto de entrada
+Instructions:
+- Use sections (##, ###)
+- Separate concepts, examples, and exercises
+- Do not invent information or add external content
+- Retain all important information from the original
+- Maintain the technical level of the input text
 
-FORMATO DE SALIDA:
+OUTPUT FORMAT:
 
-# [Nombre del tema]
+# [Topic Name]
 
-## 1. Definición
-## 2. Conceptos clave
-## 3. Desarrollo
-## 4. Ejemplos
-## 5. Ejercicios / casos prácticos
-## 6. Resumen
+## 1. Definition
+## 2. Key Concepts
+## 3. Development
+## 4. Examples
+## 5. Exercises / Case Studies
+## 6. Summary
 
-CONTENIDO:
+CONTENT:
